@@ -109,7 +109,7 @@ export default function ContactSection() {
                     <Mail className="h-5 w-5 text-blue-500 mt-1 mr-3" />
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-gray-600 dark:text-gray-400">contact@thanathipan.dev</p>
+                      <p className="text-gray-600 dark:text-gray-400">thanathipan.work@gmail.com</p>
                     </div>
                   </div>
                   
@@ -117,7 +117,7 @@ export default function ContactSection() {
                     <Phone className="h-5 w-5 text-blue-500 mt-1 mr-3" />
                     <div>
                       <h4 className="font-semibold">Phone</h4>
-                      <p className="text-gray-600 dark:text-gray-400">+66 123 456 789</p>
+                      <p className="text-gray-600 dark:text-gray-400">+77 2113413</p>
                     </div>
                   </div>
                   
@@ -125,7 +125,7 @@ export default function ContactSection() {
                     <MapPin className="h-5 w-5 text-blue-500 mt-1 mr-3" />
                     <div>
                       <h4 className="font-semibold">Location</h4>
-                      <p className="text-gray-600 dark:text-gray-400">Bangkok, Thailand</p>
+                      <p className="text-gray-600 dark:text-gray-400">Velikulam , Vavuniya</p>
                     </div>
                   </div>
                 </div>

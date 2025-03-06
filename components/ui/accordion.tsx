@@ -1,58 +1,97 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Card, CardContent } from "./../ui/card";
+import styles from "./AboutSection.module.css";
 
-import { cn } from '@/lib/utils';
+export default function AboutSection() {
+  return (
+    <section id="about" className={styles.section}>
+      <div className={styles.container}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className={styles.headingContainer}
+        >
+          <h2 className={styles.heading}>
+            About{" "}
+            <span className={styles.highlight}>Me</span>
+          </h2>
+          <div className={styles.divider}></div>
+          <p className={styles.description}>
+            Get to know more about me, my background, and what drives me as a developer.
+          </p>
+        </motion.div>
 
-const Accordion = AccordionPrimitive.Root;
+        <div className={styles.grid}>
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className={styles.imageContainer}
+          >
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/profile.jpg"
+                alt="Thanathipan"
+                fill
+                className={styles.profileImage}
+              />
+              <div className={styles.imageOverlay}></div>
+            </div>
+            <div className={styles.circleBottom}></div>
+            <div className={styles.circleTop}></div>
+          </motion.div>
 
-const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={cn('border-b', className)}
-    {...props}
-  />
-));
-AccordionItem.displayName = 'AccordionItem';
+          {/* About Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            className={styles.textContainer}
+          >
+            <h3 className={styles.subHeading}>Full-Stack Developer</h3>
+            <p className={styles.text}>
+              I'm a passionate full-stack developer with expertise in modern web technologies.
+              I specialize in building robust and scalable applications using Next.js, React, 
+              TypeScript, and Node.js. With a strong foundation in both frontend and backend, 
+              I create seamless user experiences while ensuring solid architecture.
+            </p>
 
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+            <p className={`${styles.text} ${styles.hiddenOnDesktop}`}>
+              My journey in software development has equipped me with a problem-solving mindset 
+              and attention to detail. I'm constantly learning and adapting to new technologies 
+              to deliver the best solutions for complex challenges.
+            </p>
 
-const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    {...props}
-  >
-    <div className={cn('pb-4 pt-0', className)}>{children}</div>
-  </AccordionPrimitive.Content>
-));
+            {/* Info Cards */}
+            <div className={styles.cardGrid}>
+              <InfoCard title="Experience" content="Full-Stack Developer" />
+              <InfoCard title="Education" content="Computer Science" />
+              <InfoCard title="Location" content="Remote" />
+              <InfoCard title="Languages" content="English" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
-
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+// Reusable Info Card Component
+function InfoCard({ title, content }: { title: string; content: string }) {
+  return (
+    <Card className={styles.card}>
+      <CardContent className={styles.cardContent}>
+        <h4 className={styles.cardTitle}>{title}</h4>
+        <p className={styles.cardText}>{content}</p>
+      </CardContent>
+    </Card>
+  );
+}

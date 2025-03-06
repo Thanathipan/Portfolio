@@ -42,9 +42,9 @@ export default function ContactSection() {
     
     try {
       // Replace these with your actual EmailJS service ID, template ID, and public key
-      const serviceId = "YOUR_SERVICE_ID";
-      const templateId = "YOUR_TEMPLATE_ID";
-      const publicKey = "YOUR_PUBLIC_KEY";
+      const serviceId = "service_jj4b8m9";
+      const templateId = "template_o8k40v6";
+      const publicKey = "-X4ZBJ_TXrSd_t0er";
       
       await emailjs.send(serviceId, templateId, {
         from_name: data.name,

@@ -43,7 +43,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5 }}
           className="text-center lg:text-left lg:w-1/2"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-12 sm:mt-0 mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-14 sm:mt-0 mb-4">
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
               Thanathipan

@@ -65,7 +65,7 @@ export default function HeroSection() {
             </Button>
             <Button asChild size="lg" variant="outline">
               <a
-                href="https://drive.google.com/file/d/1PcnI6UjPvfogoJJ0Elfk7Ww-PV1mQ65-/view?usp=sharing"
+                href="https://drive.google.com/file/d/16VnkOXtSQk4HencFI3SCHS2qWJXgE8xM/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
